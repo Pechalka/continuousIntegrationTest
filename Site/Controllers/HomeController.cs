@@ -13,6 +13,7 @@ namespace Site.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.message = "hello from comtroller";
             return View();
         }
 
