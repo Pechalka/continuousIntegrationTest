@@ -1,6 +1,6 @@
 ﻿namespace Service
 {
-    partial class Service1
+    partial class SiteProcessor
     {
         /// <summary> 
         /// Required designer variable.
