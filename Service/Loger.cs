@@ -1,14 +1,16 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace Service
 {
     public class Loger
     {
-        const string Path = @"c:\Work\integration\MegaProject\Service\test.txt";
+        private static readonly string Path = Assembly.GetAssembly(typeof (Loger)).Location.Replace("Service.exe", "log.txt");
             
         public static void AddLog(string message)
         {
+           
             using (StreamWriter sw = File.AppendText(Path))
             {
                 var now = DateTime.Now.ToString("dd/MM/yyyy");
