@@ -19,7 +19,7 @@ namespace Service
 
         void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Loger.AddLog("bla bla 3");
+            Loger.AddLog("bla bla 5");
         }
 
 
