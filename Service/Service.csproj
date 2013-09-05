@@ -11,8 +11,7 @@
     <RootNamespace>Service</RootNamespace>
     <AssemblyName>Service</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -35,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
@@ -78,4 +78,22 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="UpdateService">
+    <Exec Command="C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /u $(ServiceExecutablePath)" ContinueOnError="true"/>
+
+    <Exec Command="C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe $(ServiceExecutablePath)" />
+
+    <Exec Command="sc start SiteProcessor " />
+    
+<!--    <Exec Command="sc create $(ServiceName) -->
+<!--                    binPath= &quot;$(ServiceExecutablePath)&quot; start= demand-->
+<!--                    displayName= &quot;$(ServiceDisplayName)&quot;" />-->
+<!---->
+<!--    <Exec Command="sc $(DeploymentServer) description $(ServiceName) -->
+<!--                     &quot;$(ServiceDescription)&quot;" />-->
+<!---->
+<!--    <Exec Command="sc start $(ServiceName) " />-->
+    
+  </Target>
+  
 </Project>
