@@ -78,9 +78,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="UpdateService">
+  <Target Name="UninstallService">
     <Exec Command="C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /u $(ServiceExecutablePath)" ContinueOnError="true"/>
-
+  </Target>
+  
+  <Target Name="UpdateService">
     <Exec Command="C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe $(ServiceExecutablePath)" />
 
     <Exec Command="sc start SiteProcessor " />
